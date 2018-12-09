@@ -135,5 +135,5 @@
        
 ============================================================================================================
        
-#####- To open issues, please submit on this link: https://github.com/wajdijurry/php-dynamic-query-builder/issues
-#####- Any contributions are welcome
+- To open issues, please submit on this link: https://github.com/wajdijurry/php-dynamic-query-builder/issues
+- Any contributions are welcome
