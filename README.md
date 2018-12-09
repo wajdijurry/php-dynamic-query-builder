@@ -17,44 +17,44 @@
         use Wjurry\DBTools\Enums\QueryOperatorsEnums;
         
         $queryBuilder = new QueryBuilder(
-                    'suppliers',
-                    ['supplier_id', 'supplier_name'],
-                    [
-                        [
-                            'CONDITIONS' => [
-                                'supplier_id' => [QueryOperatorsEnum::OP_LESS_THAN_EQUAL => 500],
-                                'is_deleted' => [QueryOperatorsEnum::OP_EQUALS => false]
-                            ]
-                        ],
-                        [
-                            'UNION' => [
-                                'type' => 'ALL',
-                                'table' => 'companies',
-                                'columns' => ['company_id', 'company_name'],
-                                'alias' => 'c'
-                            ]
-                        ],
-                        [
-                            'JOIN' => [
-                                'table' => 'stores',
-                                'alias' => 's2',
-                                'side' => 'LEFT',
-                                'conditions' => [
-                                     's2.supplier_id' => [QueryOperatorsEnum::OP_EQUALS => 'c.company_id', 'process' => false],
-                                     's2.is_deleted' => [QueryOperatorsEnum::OP_EQUALS => false]
-                                ]
-                            ]
-                        ]
-                    ],
-                    [
-                        'column' => 'supplier_id',
-                        'direction' => 'DESC'
-                    ],
-                    [
-                        'limit' => 100,
-                        'offset' => 0
+            'suppliers',
+            ['supplier_id', 'supplier_name'],
+            [
+                [
+                    'CONDITIONS' => [
+                        'supplier_id' => [QueryOperatorsEnum::OP_LESS_THAN_EQUAL => 500],
+                        'is_deleted' => [QueryOperatorsEnum::OP_EQUALS => false]
                     ]
-                );
+                ],
+                [
+                    'UNION' => [
+                        'type' => 'ALL',
+                        'table' => 'companies',
+                        'columns' => ['company_id', 'company_name'],
+                        'alias' => 'c'
+                    ]
+                ],
+                [
+                    'JOIN' => [
+                        'table' => 'stores',
+                        'alias' => 's2',
+                        'side' => 'LEFT',
+                        'conditions' => [
+                             's2.supplier_id' => [QueryOperatorsEnum::OP_EQUALS => 'c.company_id', 'process' => false],
+                             's2.is_deleted' => [QueryOperatorsEnum::OP_EQUALS => false]
+                        ]
+                    ]
+                ]
+            ],
+            [
+                'column' => 'supplier_id',
+                'direction' => 'DESC'
+            ],
+            [
+                'limit' => 100,
+                'offset' => 0
+            ]
+        );
         
         $query = $queryBuilder->getQuery();
         // SELECT s8.supplier_id,s8.supplier_name FROM suppliers AS s8
@@ -132,3 +132,7 @@
        //   'NKX0' => false,
        //   'CLK0' => false,
        // )
+       
+============================================================================================================
+       
+#####- To open issues, please submit on this link: https://github.com/wajdijurry/php-dynamic-query-builder/issues
