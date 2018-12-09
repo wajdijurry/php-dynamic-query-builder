@@ -40,7 +40,7 @@
                         'alias' => 's2',
                         'side' => 'LEFT',
                         'conditions' => [
-                             's2.supplier_id' => [QueryOperatorsEnum::OP_EQUALS => 'c.company_id', 'process' => false],
+                             's2.supplier_id' => [QueryOperatorsEnum::OP_EQUALS => 'c.company_id', 'process' => false], // 'process = false' (optional): returns the condition as is without binding
                              's2.is_deleted' => [QueryOperatorsEnum::OP_EQUALS => false]
                         ]
                     ]
@@ -133,7 +133,7 @@
        //   'CLK0' => false,
        // )
        
-============================================================================================================
+==================================================================================
        
 - To open issues, please submit on this link: https://github.com/wajdijurry/php-dynamic-query-builder/issues
 - Any contributions are welcome
