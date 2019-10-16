@@ -95,7 +95,7 @@ class QueryBuilder
     public function __construct(string $table, array $columns, array $options = [], array $orderBy = [], array $limit = [])
     {
         if (empty($table)) {
-            throw new \Exception('Tale should be specified', 500);
+            throw new \Exception('Table should be specified', 500);
         }
         $this->table = $table;
         $this->columns = $columns;
